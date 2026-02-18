@@ -18,8 +18,8 @@ To add this module to an IOC application:
         SEABREEZE_PACKAGE_NAME = seabreeze
         SEABREEZE_VERSION      = 3.0.11
         SEABREEZE_TOP          = $(PACKAGE_SITE_TOP)/$(SEABREEZE_PACKAGE_NAME)/$(SEABREEZE_VERSION)
-        SEABREEZE_LIB          = $(SEABREEZE_TOP)/$(EPICS_HOST_ARCH)/lib
-        SEABREEZE_INCLUDE      = $(SEABREEZE_TOP)/$(EPICS_HOST_ARCH)/include
+        SEABREEZE_LIB          = $(SEABREEZE_TOP)/$(PKG_ARCH)/lib
+        SEABREEZE_INCLUDE      = $(SEABREEZE_TOP)/$(PKG_ARCH)/include
     - Add to src/Makefile:
         seabreeze_DIR = $(SEABREEZE_LIB)
         $(PROD_NAME)_DBD += base.dbd
