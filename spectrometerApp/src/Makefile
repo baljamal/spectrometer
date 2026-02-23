@@ -23,12 +23,12 @@ USR_INCLUDES += -I$(OCEANDIRECT_INCLUDE)
 else ifeq ($(T_A), rhel7-x86_64)
 LIBRARY_IOC_Linux += $(PROD_NAME)
 PROD_IOC_Linux += $(PROD_NAME)
-DBD += $(PROD_NAME).dbd
+DBD += $(PROD_NAME)_RHEL7.dbd
 USR_INCLUDES += -I$(SEABREEZE_INCLUDE)
 else ifeq ($(T_A), rhel9-x86_64)
 LIBRARY_IOC_Linux += $(PROD_NAME)
 PROD_IOC_Linux += $(PROD_NAME)
-DBD += $(PROD_NAME).dbd
+DBD += $(PROD_NAME)_RHEL9.dbd
 USR_INCLUDES += -I$(SEABREEZE_INCLUDE)
 USR_INCLUDES += -I$(OCEANDIRECT_INCLUDE)
 endif
@@ -46,16 +46,6 @@ $(PROD_NAME)_DBD += base.dbd
 $(PROD_NAME)_DBD += asyn.dbd
 $(PROD_NAME)_DBD += seabreezeSupport.dbd
 $(PROD_NAME)_DBD += oceanDirectSupport.dbd
-endif
-
-ifeq ($(T_A), linuxRT-x86_64)
-LIB_INSTALLS_Linux += $(OCEANDIRECT_LIB)/liboceandirect.so
-LIB_INSTALLS_Linux += $(wildcard $(LIBUSB01_LIB)/libusb-0.1.so*)
-else ifeq ($(T_A), rhel7-x86_64)
-LIB_INSTALLS_Linux += $(SEABREEZE_LIB)/libseabreeze.a
-else ifeq ($(T_A), rhel9-x86_64)
-LIB_INSTALLS_Linux += $(OCEANDIRECT_LIB)/liboceandirect.so
-LIB_INSTALLS_Linux += $(SEABREEZE_LIB)/libseabreeze.a
 endif
 
 # The following are compiled and added to the Support library
@@ -80,8 +70,8 @@ $(PROD_NAME)_SRCS += spectrometerMain.cpp
 else ifeq ($(T_A), rhel9-x86_64)
 $(PROD_NAME)_SRCS += drvSeaBreezeWrapper.cpp
 $(PROD_NAME)_SRCS += drvSeaBreezeAPI.cpp
-$(PROD_NAME)_SRCS += spectrometerMain.cpp
 $(PROD_NAME)_SRCS += drvOceanDirect.cpp
+$(PROD_NAME)_SRCS += spectrometerMain.cpp
 endif
 
 
@@ -121,11 +111,6 @@ $(PROD_NAME)_SYS_LIBS += usb
 $(PROD_NAME)_SYS_LIBS += oceandirect
 $(PROD_NAME)_LIBS += $(EPICS_BASE_IOC_LIBS)
 endif
-
-
-
-
-
 
 #========================================
 include $(TOP)/configure/RULES
