@@ -38,14 +38,14 @@ $(PROD_NAME)RT_DBD += base.dbd
 $(PROD_NAME)RT_DBD += asyn.dbd
 $(PROD_NAME)RT_DBD += oceanDirectSupport.dbd
 else ifeq ($(T_A), rhel7-x86_64)
-$(PROD_NAME)_DBD += base.dbd
-$(PROD_NAME)_DBD += asyn.dbd
-$(PROD_NAME)_DBD += seabreezeSupport.dbd
+$(PROD_NAME)_RHEL7_DBD += base.dbd
+$(PROD_NAME)_RHEL7_DBD += asyn.dbd
+$(PROD_NAME)_RHEL7_DBD += seabreezeSupport.dbd
 else ifeq ($(T_A), rhel9-x86_64)
-$(PROD_NAME)_DBD += base.dbd
-$(PROD_NAME)_DBD += asyn.dbd
-$(PROD_NAME)_DBD += seabreezeSupport.dbd
-$(PROD_NAME)_DBD += oceanDirectSupport.dbd
+$(PROD_NAME)_RHEL9_DBD += base.dbd
+$(PROD_NAME)_RHEL9_DBD += asyn.dbd
+$(PROD_NAME)_RHEL9_DBD += seabreezeSupport.dbd
+$(PROD_NAME)_RHEL9_DBD += oceanDirectSupport.dbd
 endif
 
 # The following are compiled and added to the Support library
